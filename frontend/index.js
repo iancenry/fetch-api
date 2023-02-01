@@ -80,12 +80,16 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 
 
-//using coinranking api
-fetch('https://api.coinranking.com/v2/coins?limit=10',{
+//using coinranking api -baseUrl amd access-control are optional depending on if you get cors error
+let baseUrl = "https://api.coinranking.com/v2/coins?limit=10"
+let proxyUrl = "https://cors-anywhere.herokuapp.com/"
+let apiKey = "coinranking17f01e9e1dccd66798789c2624f675322cf55e02193cdca7"
+fetch(`${proxyUrl}${baseUrl}`,{
   method: 'GET', 
   headers: {
     'Content-Type': 'application/json',
-    'x-acccess-token': `coinranking17f01e9e1dccd66798789c2624f675322cf55e02193cdca7`
+    'x-acccess-token': `${apiKey}`,
+    'Access-Control-Allow-Origin': '*'
   }
 })
   .then((res) => res.json())
@@ -100,7 +104,7 @@ fetch('https://api.coinranking.com/v2/coins?limit=10',{
             <td>${coin.symbol}</td>
         </tr>
       `
-    } )
+    }).join("")
 
     document.getElementById("data").innerHTML = cryptoCoins
 
