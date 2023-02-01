@@ -92,21 +92,26 @@ fetch(`${proxyUrl}${baseUrl}`,{
     'Access-Control-Allow-Origin': '*'
   }
 })
-  .then((res) => res.json())
-  .then(data => {
-    let coinsData = data.data.coins
-    
-    let cryptoCoins = coinsData.map(coin => {
-      return `
-        <tr>
-            <td>${coin.name}</td>
-            <td>${coin.price}</td>
-            <td>${coin.symbol}</td>
-        </tr>
-      `
-    }).join("")
+  .then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        let coinsData = data.data.coins
 
-    document.getElementById("data").innerHTML = cryptoCoins
+        let cryptoCoins = coinsData
+          .map((coin) => {
+            return `
+              <tr>
+                  <td>${coin.name}</td>
+                  <td>${coin.price}</td>
+                  <td>${coin.symbol}</td>
+              </tr>
+            `
+          })
+          .join('')
 
+        document.getElementById('data').innerHTML = cryptoCoins
+      })
+    }
   })
+
   .catch(console.error)
