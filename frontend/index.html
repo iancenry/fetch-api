@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Fetch</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="text-center">
+            <h1 class="display-4 text-center mb-3">FETCH API</h1>
+            <button class="btn btn-primary my-3" id="get">GET</button>
+            <button class="btn btn-info" id="post">POST</button>
+            <button class="btn btn-warning" id="update">UPDATE/PUT/PATCH</button>
+            <button class="btn btn-danger" id="delete">DELETE</button>
+        </div>
+        <hr>
+        <div id="res"></div>
+
+        <hr>
+
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th class="scope">Name</th>
+                    <th class="scope">Price</th>
+                    <th class="scope">Symbol</th>
+                </tr>
+            </thead>
+    
+            <tbody id="data"></tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
