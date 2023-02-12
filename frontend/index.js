@@ -102,7 +102,7 @@ fetch(`${proxyUrl}${baseUrl}`,{
             return `
               <tr>
                   <td>${coin.name}</td>
-                  <td>${coin.price}</td>
+                  <td>$${Math.floor(coin.price)}</td>
                   <td>${coin.symbol}</td>
               </tr>
             `
